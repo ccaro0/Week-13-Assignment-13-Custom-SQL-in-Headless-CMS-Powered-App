@@ -15,14 +15,13 @@ export default function Post({ postData }) {
     return (
       <Layout>
         <Head>
-          <title>{postData.post_title}</title>
+          <title>{postData.acf.especialidad_name}</title>
         </Head>
         <article className={utilStyles.backgroundC}>
-          <h1 className={utilStyles.headingXl}>{postData.post_title}</h1>
-          <div className={utilStyles.lightText}>
-            <Date dateString={postData.post_date} />
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: postData.post_content }} />
+          <h1 className={utilStyles.headingXl}>{postData.acf.especialidad_name}</h1>
+          <div className="lightText" dangerouslySetInnerHTML={{ __html: postData.acf.description }} />
+          <div className="lightText" dangerouslySetInnerHTML={{ __html: postData.acf.requirements }} />
+
         </article>
       </Layout>
     );

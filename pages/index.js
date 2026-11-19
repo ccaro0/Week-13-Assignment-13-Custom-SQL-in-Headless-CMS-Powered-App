@@ -14,14 +14,19 @@ export async function getStaticProps() {
 export default function Home({ allData }) {
   return (
       <Layout home>
-        <h1>List of Names</h1>
-        <div className="list-group">
+        <Head>
+          <title>List of Names</title>
+        </Head>
+        <h1>List of Especialidades</h1>
+        <ol className="list-group">
           {allData.map(({ id, name }) => (
-            <Link key={id} href={`/posts/${id}`} className="list-group-item list-group-item-action">
+            <li key={id}>
+              <Link href={`/posts/${id}`}>
               {name}
             </Link>
+            </li>
           ))}
-        </div>
+        </ol>
       </Layout>
   );
 }
